@@ -39,11 +39,11 @@ class MessageSend:
         assert type(token) == str, "Wrong type for pushplus token."
         content = content.replace("\n", "\n\n")
         payload = {
-            'token': token,
+            "token": token,
             "title": title,
             "content": content,
-            "channel": "wechat",
-            "template": "markdown"
+            "channel": "webhook",
+            "webhook": "aliyundrive-checkin"
         }
         resp = requests.post("http://www.pushplus.plus/send", data=payload)
         resp_json = resp.json()
